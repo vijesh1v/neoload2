@@ -9,8 +9,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+     
       - name: Execute NeoLoad Scenario
         shell: powershell
         run: |
           $neoloadPath = 'C:\Program Files\NeoLoad 9.1\bin\NeoLoadCmd.exe'
-          & $neoloadPath -project "./testsd.nlp" -launch "scenario1" -noGUI
+          $projectPath = "$($env:GITHUB_WORKSPACE)\testsd.nlp"
+          & $neoloadPath -project $projectPath -launch "scenario1" -noGUI
