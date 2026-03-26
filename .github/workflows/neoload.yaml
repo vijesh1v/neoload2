@@ -13,4 +13,6 @@ jobs:
         run: |
           # 1. Use '&' and quotes for the full path to the EXE
           # 2. Use './' to tell it the NLP file is in the current folder
-          & "C:\Program Files\NeoLoad\bin\neoload.exe" run --project "./testsd.nlp" --scenario "scenario1"
+          & "C:\Program Files\NeoLoad 9.1\bin\NeoLoadCmd.exe" -project "./testsd.nlp" -launch "scenario1" -noGUI
+          - name: Execute NeoLoad Scenario
+    
