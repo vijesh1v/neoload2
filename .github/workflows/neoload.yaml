@@ -10,9 +10,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Execute NeoLoad Scenario
+        shell: powershell
         run: |
-          # 1. Use '&' and quotes for the full path to the EXE
-          # 2. Use './' to tell it the NLP file is in the current folder
-          & "C:\Program Files\NeoLoad 9.1\bin\NeoLoadCmd.exe" -project "./testsd.nlp" -launch "scenario1" -noGUI
-          - name: Execute NeoLoad Scenario
-    
+          $neoloadPath = 'C:\Program Files\NeoLoad 9.1\bin\NeoLoadCmd.exe'
+          & $neoloadPath -project "./testsd.nlp" -launch "scenario1" -noGUI
