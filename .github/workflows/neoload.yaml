@@ -1,0 +1,16 @@
+name: Neoload Test Execution
+on:
+  workflow_dispatch:
+jobs:
+  run-neoload-test:
+    runs-on: self-hosted # Ensure your local runner is 'Active'
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Execute NeoLoad Scenario
+        run: |
+          # 1. Use '&' and quotes for the full path to the EXE
+          # 2. Use './' to tell it the NLP file is in the current folder
+          & "C:\Program Files\NeoLoad\bin\neoload.exe" run --project "./testsd.nlp" --scenario "scenario1"
